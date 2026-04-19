@@ -2,7 +2,10 @@
 
 class DiscordBot
   def initialize
-    @bot = Discordrb::Bot.new token: ENV['DISCORD_BOT_TOKEN']
+    @bot = Discordrb::Bot.new(
+      token: ENV['DISCORD_BOT_TOKEN'],
+      intents: %i[servers server_members server_messages server_message_reactions]
+    )
   end
 
   def start
