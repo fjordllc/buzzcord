@@ -35,30 +35,19 @@ jobs:
           --health-retries 5
     steps:
       - name: Set Timezone
-        uses: szenius/set-timezone@v1.0
+        uses: szenius/set-timezone@v2.0
         with:
           timezoneLinux: "Asia/Tokyo"
 
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.1.0
-          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
+          ruby-version: 3.3.8
+          bundler-cache: true
 
-      - name: Cache node modules
-        uses: actions/cache@v2.1.4
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-node-${{ hashFiles('**/yarn.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
-
-      - name: yarn install
-        run: yarn install --check-files
-
-      - name: webpack install
-        run: NODE_OPTIONS=--openssl-legacy-provider bin/webpack
+      - name: Build assets
+        run: bundle exec rails dartsass:build
 
       - name: Setup test DB
         run: bundle exec rails db:setup
@@ -70,7 +59,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Ruby and gems
         uses: ruby/setup-ruby@v1
