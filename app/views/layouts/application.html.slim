@@ -47,4 +47,4 @@ html
                     a.btn.btn-outline-light.btn-floating.ms-1 href="https://github.com/Paru871/buzzcord/" role="button"
                       i.bi.bi-github
                 .col-md-5.text-md-end.mt-2
-                  = button_to 'ログアウト', logout_path, method: :delete, class: 'btn btn-outline-warning rounded-pill'
+                  = button_to 'ログアウト', logout_path, method: :delete, class: 'btn btn-outline-warning rounded-pill', data: { turbo: false }
