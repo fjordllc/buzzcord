@@ -5,7 +5,7 @@ class AvatarUrlMaker
     if avatar_id
       DiscordApiClient.new.make_avatar_url(uid, avatar_id)
     else
-      DiscordApiClient.new.make_default_avatar(discriminator)
+      DiscordApiClient.new.make_default_avatar(uid)
     end
   end
 end

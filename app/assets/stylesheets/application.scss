@@ -1,0 +1,29 @@
+@import './variables';
+@import 'bootstrap';
+@import './base';
+
+.background-main-color {
+  background-color: $main-color !important;
+}
+.text-main-color {
+  color: $main-color !important;
+}
+.text-accent-color {
+  color: $accent-color !important;
+}
+.text-gray {
+  color: $gray !important;
+}
+
+@import './button';
+@import './wrapper';
+@import './welcome';
+@import './header';
+@import './ranks';
+@import './rank';
+@import './rank-main';
+@import './rank-emojis';
+@import './rank-score';
+@import './rank-crown';
+@import './rank-body';
+@import './rank-links';
