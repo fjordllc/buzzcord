@@ -10,6 +10,8 @@ class AllRankingDataCreator
       rank_record = RanksCreator.call(message, index)
       EmojisCreator.call(message, rank_record)
       AttachmentsCreator.call(message, rank_record)
+    rescue Discordrb::Errors::UnknownMessage
+      next
     end
 
     # 一昨日以前のリアクションデータの削除

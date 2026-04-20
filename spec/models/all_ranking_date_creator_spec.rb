@@ -15,6 +15,19 @@ RSpec.describe RanksCreator, type: :model do
           .and change { Attachment.count }.from(1).to(0)
       end
     end
+    context 'Discord上でメッセージが削除済みのとき' do
+      it 'UnknownMessageエラーをスキップして処理を継続する' do
+        reaction = create(:reaction)
+        allow(RankOrderMaker).to receive(:new).and_return(
+          instance_double(RankOrderMaker, each_ranked_message: nil).tap do |dbl|
+            allow(dbl).to receive(:each_ranked_message).and_yield([[reaction.channel_id, reaction.message_id], 1], 1)
+          end
+        )
+        allow(RanksCreator).to receive(:call).and_raise(Discordrb::Errors::UnknownMessage.new('Unknown Message'))
+        expect { AllRankingDataCreator.call }.not_to raise_error
+      end
+    end
+
     context '#一昨日以前のリアクションデータの削除' do
       before do
         create_list(:reaction, 5)
