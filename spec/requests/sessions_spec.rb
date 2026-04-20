@@ -49,5 +49,4 @@ RSpec.describe 'Sessions', type: :request do
       expect(session[:user_id]).to be_nil
     end
   end
-
 end
