@@ -24,7 +24,8 @@ class DiscordApiClient
   end
 
   def create_post(header, embed_message)
-    Discordrb::API::Channel.create_message("Bot #{@token}", @channel_id, header, false, embed_message)
+    embeds = embed_message ? [embed_message] : nil
+    Discordrb::API::Channel.create_message("Bot #{@token}", @channel_id, header, false, embeds)
   end
 
   def fetch_channel_info(channel)
