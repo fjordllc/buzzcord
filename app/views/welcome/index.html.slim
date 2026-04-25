@@ -14,7 +14,7 @@
     br.d-none.d-sm-block
     | 昨日みんなが絵文字スタンプで多く反応した発言を簡単に知れます。
   .my-5.text-center
-    = button_to 'Discordでログイン', '/auth/discord', method: :post, class: 'btn button-new btn-lg rounded'
+    = button_to 'Discordでログイン', '/auth/discord', method: :post, class: 'btn button-new btn-lg rounded', data: { turbo: false }
   .row.gx-4.justify-content-between.mb-4
     .col-sm.mb-4
       .p-4.bg-white.rounded

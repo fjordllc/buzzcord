@@ -61,7 +61,7 @@ RSpec.describe 'Ranks', type: :system do
         create(:attachment, rank_id: @rank[4].id, attachment_id: 234_567, attachment_filename: 'https://cdn.discordapp.com/attachments/23456/234567/6666.png')
 
         sign_in_as(user)
-        page.save_screenshot
+
         expect(ranks[0].find('.rank-main__text.card-text').text).to eq 'テスト投稿です！_1'
         expect(ranks[1].find('.rank-main__text.card-text').text).to eq 'テスト投稿です！_2'
         expect(ranks[2].find('.rank-main__text.card-text').text).to eq 'テスト投稿です！_3'

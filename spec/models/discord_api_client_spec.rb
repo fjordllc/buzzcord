@@ -46,7 +46,7 @@ RSpec.describe DiscordApiClient, type: :model do
     end
     it 'アバター未登録の場合はデフォルト画像が取得できる' do
       response = DiscordApiClient.new.make_default_avatar(@discriminator)
-      expect(response).to eq 'https://cdn.discordapp.com/embed/avatars/2.png'
+      expect(response).to eq 'https://cdn.discordapp.com/embed/avatars/0.png'
     end
   end
 

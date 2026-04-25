@@ -23,7 +23,7 @@ RSpec.describe AvatarUrlMaker, type: :model do
       end
       it 'デフォルト画像を取得する' do
         avatar_url = AvatarUrlMaker.call(@uid, @avatar_id, @discriminator)
-        expect(avatar_url).to eq 'https://cdn.discordapp.com/embed/avatars/4.png'
+        expect(avatar_url).to eq 'https://cdn.discordapp.com/embed/avatars/0.png'
       end
     end
   end

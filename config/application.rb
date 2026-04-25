@@ -12,7 +12,7 @@ require "action_controller/railtie"
 # require "action_text/engine"
 require "action_view/railtie"
 require "action_cable/engine"
-require "sprockets/railtie"
+require "propshaft"
 # require "rails/test_unit/railtie"
 
 # Require the gems listed in Gemfile, including any gems
@@ -22,7 +22,7 @@ Bundler.require(*Rails.groups)
 module Buzzcord
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 6.1
+    config.load_defaults 7.2
 
     config.generators do |g|
       g.test_framework :rspec,

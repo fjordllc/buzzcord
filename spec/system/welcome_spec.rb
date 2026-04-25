@@ -26,6 +26,12 @@ RSpec.describe 'Welcome', type: :system do
     expect(page).to have_content 'Buzzcordは昨日Discordのサーバーでバズった発言をDiscord botが自動で集計・紹介。'
   end
 
+  it 'DiscordログインボタンがTurboを無効化している' do
+    visit root_path
+
+    expect(page).to have_selector('form[action="/auth/discord"] button[data-turbo="false"]')
+  end
+
   it 'ログインしているユーザが / ページを表示' do
     sign_in_as(user)
     visit root_path
